@@ -13,7 +13,7 @@ enum
     LOCKZOOM_ARCADE=2
 };
 
-@interface KBDController : UIViewController <UITextFieldDelegate> 
+@interface KBDController : UIViewController
 {
 
     CGRect keyboardDelta;
@@ -28,7 +28,6 @@ enum
     
 	int	inputMode;
 
-    UITextField*    _textField;
 	UIButton*       _menuButton;
 	UIBarButtonItem*    _optionButton ;
 	UIImageView*    _diskView;
@@ -78,8 +77,6 @@ enum
 	
 	
 }
-
-@property (nonatomic,strong)    UITextField* textField;
 
 @property (nonatomic,strong)    UIButton *menuButton;
 @property (nonatomic,strong)    UIBarButtonItem* optionButton ;

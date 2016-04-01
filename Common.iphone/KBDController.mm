@@ -24,6 +24,8 @@
     #include "UICustomKey.h"
 #endif
 
+#import "KBDControllerTextField.h"
+
 #ifndef ACTIVEGS_NOHARDWAREKEYBOARDETECTION
 extern "C" void GSEventSetHardwareKeyboardAttached(Boolean);
 extern "C" void UIKeyboardOrderInAutomatic();
@@ -273,6 +275,12 @@ int isHardwareKeyboard()
 
 }
 
+@interface KBDController () <KBDControllerTextFieldDelegate, UITextFieldDelegate>
+
+@property (nonatomic,strong) KBDControllerTextField * textField;
+
+@end
+
 @implementation KBDController
 
 @synthesize textField = _textField;
@@ -458,8 +466,9 @@ extern int findCode(const char* _s);
 	self.loaderLabel.hidden = TRUE;
 	
 
-	self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+	self.textField = [[KBDControllerTextField alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
 	self.textField.delegate = self;
+    self.textField.keyCommandDelegate = self;
 	self.textField.autocapitalizationType= UITextAutocorrectionTypeNo;
 	self.textField.text= @"*";	// Put a default value to capture del key
 	[self.interfaceView addSubview:self.textField];
@@ -1878,7 +1887,11 @@ int x_adb_get_keypad_y()
 }
 
 
-    
+- (void)esc:(UIKeyCommand *)keyCommand
+{
+    debug_printf("hardware kbd esc ");
+    [self handleKeyCode:findCode("esc")];
+}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string 
 {
@@ -1975,22 +1988,24 @@ int x_adb_get_keypad_y()
 		if (!strcmp(s,"\n"))
 			s = "return";
     
-    
-    
-	int c = findCode(s);
-	debug_printf("text: %s code:%d\n",s,c);
-	if (c>=0)
-	{
-		if (c & shiftKey)
-			add_event_modifier(shiftKey);
-		add_event_key(c&0xFF,0);
-		NSNumber* ui = [[NSNumber alloc ]initWithInt:c];
-		[NSTimer scheduledTimerWithTimeInterval:1.0/20.0 target:self selector:@selector(keyup:) userInfo:ui repeats:NO];
-	}
+    debug_printf("text: %s ", s);
+    [self handleKeyCode:findCode(s)];
 	
     return NO;
 }
 
+- (void)handleKeyCode:(int)c
+{
+    debug_printf("code:%d\n",c);
+    if (c>=0)
+    {
+        if (c & shiftKey)
+            add_event_modifier(shiftKey);
+        add_event_key(c&0xFF,0);
+        NSNumber* ui = @(c);
+        [NSTimer scheduledTimerWithTimeInterval:1.0/20.0 target:self selector:@selector(keyup:) userInfo:ui repeats:NO];
+    }
+}
 
 - (BOOL) myTouchesBegan:(NSSet *)touches 
 {

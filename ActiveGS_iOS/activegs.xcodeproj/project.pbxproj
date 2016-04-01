@@ -218,6 +218,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		644C7D541CAE8F4B00F23EEB /* KBDControllerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 644C7D531CAE8F4B00F23EEB /* KBDControllerTextField.m */; };
 		7E51481F1CA6B5CE005DA0A6 /* ActiveGS.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E51480C1CA6B5CE005DA0A6 /* ActiveGS.png */; };
 		7E5148201CA6B5CE005DA0A6 /* Apple_2_Disk_Drive_Sounds.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7E51480D1CA6B5CE005DA0A6 /* Apple_2_Disk_Drive_Sounds.txt */; };
 		7E5148211CA6B5CE005DA0A6 /* disk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E51480E1CA6B5CE005DA0A6 /* disk.png */; };
@@ -555,6 +556,8 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* activegs_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activegs_Prefix.pch; sourceTree = "<group>"; };
+		644C7D521CAE8F4B00F23EEB /* KBDControllerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBDControllerTextField.h; sourceTree = "<group>"; };
+		644C7D531CAE8F4B00F23EEB /* KBDControllerTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBDControllerTextField.m; sourceTree = "<group>"; };
 		7E51480C1CA6B5CE005DA0A6 /* ActiveGS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActiveGS.png; sourceTree = "<group>"; };
 		7E51480D1CA6B5CE005DA0A6 /* Apple_2_Disk_Drive_Sounds.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Apple_2_Disk_Drive_Sounds.txt; sourceTree = "<group>"; };
 		7E51480E1CA6B5CE005DA0A6 /* disk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disk.png; sourceTree = "<group>"; };
@@ -977,6 +980,8 @@
 				09FA6089125A7B3E00B07F77 /* icon_APPLE 2GS.png */,
 				09FA608A125A7B3E00B07F77 /* KBDController.h */,
 				09FA608B125A7B3E00B07F77 /* KBDController.mm */,
+				644C7D521CAE8F4B00F23EEB /* KBDControllerTextField.h */,
+				644C7D531CAE8F4B00F23EEB /* KBDControllerTextField.m */,
 			);
 			name = Common.iphone;
 			path = ../Common.iphone;
@@ -1369,6 +1374,7 @@
 				09052B9219053C9F00853FAE /* inftrees.cpp in Sources */,
 				09052B8819053C9F00853FAE /* ioapi.cpp in Sources */,
 				09052B7C19053C9F00853FAE /* pngpread.cpp in Sources */,
+				644C7D541CAE8F4B00F23EEB /* KBDControllerTextField.m in Sources */,
 				09052B8419053C9F00853FAE /* pngwio.cpp in Sources */,
 				09052B8719053C9F00853FAE /* pngwutil.cpp in Sources */,
 				09052B8A19053C9F00853FAE /* unzip.cpp in Sources */,
