@@ -21,4 +21,9 @@
 /// may be triggered by esc key or Command-`
 - (void)esc:(UIKeyCommand * _Nonnull)keyCommand;
 
+- (void)up:(UIKeyCommand * _Nonnull)keyCommand;
+- (void)down:(UIKeyCommand * _Nonnull)keyCommand;
+- (void)left:(UIKeyCommand * _Nonnull)keyCommand;
+- (void)right:(UIKeyCommand * _Nonnull)keyCommand;
+
 @end

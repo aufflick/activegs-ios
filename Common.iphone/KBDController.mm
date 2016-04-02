@@ -1887,11 +1887,11 @@ int x_adb_get_keypad_y()
 }
 
 
-- (void)esc:(UIKeyCommand *)keyCommand
-{
-    debug_printf("hardware kbd esc ");
-    [self handleKeyCode:findCode("esc")];
-}
+- (void)esc:   (UIKeyCommand *)keyCommand { [self handleKeyCode:findCode("esc")]; }
+- (void)up:    (UIKeyCommand *)keyCommand { debug_printf("TODO: handle up arrow"); }
+- (void)down:  (UIKeyCommand *)keyCommand { debug_printf("TODO: handle down arrow"); }
+- (void)left:  (UIKeyCommand *)keyCommand { [self handleKeyCode:findCode("<-")]; }
+- (void)right: (UIKeyCommand *)keyCommand { [self handleKeyCode:findCode("->")]; }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string 
 {
